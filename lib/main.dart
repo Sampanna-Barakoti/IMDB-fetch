@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/utils/text.dart';
+import 'package:movie_app/widgets/toprated.dart';
 import 'package:movie_app/widgets/trending.dart';
+import 'package:movie_app/widgets/tv.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
 void main() {
@@ -66,7 +68,13 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.transparent,
         title: TextModified(text: "IMDB Movie App ❤️", size: 26),
       ),
-      body: ListView(children: [TrendingMovies(trending: movies)]),
+      body: ListView(
+        children: [
+          TV(tv: tvShows),
+          Toprated(toprated: topratedMovies),
+          TrendingMovies(trending: movies),
+        ],
+      ),
     );
   }
 }
